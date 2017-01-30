@@ -18,7 +18,7 @@ wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2F
 
 yum -y localinstall jre-8u60-linux-x64.rpm
 
-#rm ~/jre-8u60-linux-x64.rpm
+rm ~/jre-8u60-linux-x64.rpm
 
 #based on: https://dpastov.blogspot.co.uk/2015/10/setup-play-framework-and-typesafe-centos.html
 
@@ -27,11 +27,13 @@ wget "https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activato
 unzip typesafe-activator-1.3.12.zip
 mv activator-dist-1.3.12 /opt
 
-#rm typesafe-activator-1.3.12.zip
+rm typesafe-activator-1.3.12.zip
 
 ln -s /opt/activator-dist-1.3.12/bin/activator /usr/local/sbin/activator
 
-export PATH=/usr/local/sbin/activator:$PATH
+#export PATH=/usr/local/sbin/activator:$PATH
+echo 'pathmunge /usr/local/sbin/activator' > /etc/profile.d/activatorpath.sh
+chmod +x /etc/profile.d/activatorpath.sh
 
 cd /var
 mkdir www
