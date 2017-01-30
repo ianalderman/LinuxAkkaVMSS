@@ -1,4 +1,5 @@
 
+#!/bin/bash
 #based on: https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/
 #wait for the Linux Diagnostic Extension to get up and running before we kick off
 while ( ! (find /var/log/azure/Microsoft.OSTCExtensions.LinuxDiagnostic/*/extension.log | xargs grep "Start mdsd"));
@@ -10,7 +11,7 @@ done
 cd ~
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.rpm"
 
-sudo yum localinstall jre-8u60-linux-x64.rpm
+sudo yum -y localinstall jre-8u60-linux-x64.rpm
 
 rm ~/jre-8u60-linux-x64.rpm
 
@@ -23,9 +24,9 @@ mv activator-dist-1.3.12 /opt
 
 rm typesafe-activator-1.3.12.zip
 
-ln -s /opt/activator-dist-1.3.12/bin/activator /usr/local/sbin/activator
+sudo ln -s /opt/activator-dist-1.3.12/bin/activator /usr/local/sbin/activator
 
-export PATH=/usr/local/sbin/activator:$PATH
+sudo export PATH=/usr/local/sbin/activator:$PATH
 
 cd /var
 mkdir www
