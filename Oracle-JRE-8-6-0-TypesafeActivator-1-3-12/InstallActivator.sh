@@ -40,7 +40,7 @@ cd /var
 mkdir www
 
 #udpate system packages
-yum -y update
+yum update -y --exclude=WALinuxAgent
 
 
 
