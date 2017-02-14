@@ -39,8 +39,6 @@ chmod +x /etc/profile.d/activatorpath.sh
 cd /var
 mkdir www
 
-#udpate system packages
-yum -y update
 
 
 
