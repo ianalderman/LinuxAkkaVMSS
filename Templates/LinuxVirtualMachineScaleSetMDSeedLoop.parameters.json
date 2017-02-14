@@ -1,0 +1,35 @@
+﻿{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmssName": {
+            "value": "vmssakka"
+        },
+        "instanceCount": {
+            "value": 2
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": ""
+                },
+                "secretName": ""
+            }
+        },
+        "seedcount": {
+            "value": 2
+        },
+        "WorkerVmSize": {
+            "value": "Standard_A2"
+        },
+        "SeedVmSize": {
+            "value": "Standard_A2"
+        },
+        "CentOSVersion": {
+            "value": "7.2"
+        }
+    }
+}
